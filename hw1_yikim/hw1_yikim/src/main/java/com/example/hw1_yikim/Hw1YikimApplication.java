@@ -1,13 +1,13 @@
-package com.pard.server.week3;
+package com.example.hw1_yikim;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Week3Application {
+public class Hw1YikimApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Week3Application.class, args);
+		SpringApplication.run(Hw1YikimApplication.class, args);
 	}
 
 }
