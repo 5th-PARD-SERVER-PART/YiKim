@@ -1,6 +1,7 @@
 package com.example.hw3.user.controller;
 
 import com.example.hw3.user.dto.TravelerDto;
+import com.example.hw3.user.dto.request.TravelerRequestDto;
 import com.example.hw3.user.service.TravelerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +15,9 @@ public class TravelerController {
     private final TravelerService travelerService;
 
     @PostMapping("")
-    public String save(@RequestBody TravelerDto travelerDto){
-        travelerService.create(travelerDto);
-        return travelerDto.getTravelerName() + "님의 예매가 완료되었습니다.";
+    public String save(@RequestBody TravelerRequestDto travelerRequestDto){
+        travelerService.create(travelerRequestDto.toEntity());
+        return travelerRequestDto.getTravelerName() + "님의 예매가 완료되었습니다.";
     }
 
     @GetMapping("/{travelerID}")
@@ -25,9 +26,9 @@ public class TravelerController {
     }
 
     @PatchMapping("/{travelerID}")
-    public String updateByID(@PathVariable Long travelerID, @RequestBody TravelerDto travelerDto){
-        travelerService.update(travelerID, travelerDto);
-        return travelerDto.getTravelerName() + "님의 예매가 수정되었습니다.";
+    public String updateByID(@PathVariable Long travelerID, @RequestBody TravelerRequestDto travelerRequestDto){
+        travelerService.update(travelerID, travelerRequestDto.toEntity());
+        return travelerRequestDto.getTravelerName() + "님의 예매가 수정되었습니다.";
     }
 
     @DeleteMapping("/{travelerID}")
