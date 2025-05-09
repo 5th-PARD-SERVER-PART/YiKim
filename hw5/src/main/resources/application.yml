@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: hw4
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hw5?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: dk04020402
+
+  web:
+    cors:
+      allowed-origins: http://localhost:3000
+
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    generate-ddl: false
+    properties:
+      hibernate:
+        format_sql: true
+        enable_lazy_load_no_trans: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 36877603637-l3i2f2e2mobg97nuc60ts2lbsq94n4qt.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: http://localhost:8080/login/oauth2/code/google
+            scope:
+              - profile
+              - email
